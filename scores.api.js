@@ -2,12 +2,19 @@ const express = require("express");
 const scores = express.Router();
 const pool = require("./connection");
 
-scores.get("/scores", (req, res) => {
-  console.log("GET FOR SCORES WORKS");
-});
+function selectAllScores(req, res) {
+  pool.query("select * from scores order by score desc").then((result) => {
+    res.send(result.rows);
+  });
+}
+
+scores.get("/scores", selectAllScores);
+
 
 scores.post("/scores", (req, res) => {
-  console.log("POST FOR SCORES WORKS");
+  pool.query("insert into scores (username, score) values ($1::text, $2::int)", [req.body.username, req.body.score]).then(() => {
+    selectAllScores(req, res);
+  });
 });
 
 
