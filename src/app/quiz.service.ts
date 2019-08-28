@@ -12,4 +12,12 @@ export class QuizService {
   getQuestions(): Observable<any> {
     return this.http.get("http://localhost:7000/questions");
   }
+
+  getScores(): Observable<any> {
+    return this.http.get("http://localhost:7000/scores");
+  }
+
+  postScores() {
+
+  }
 }
