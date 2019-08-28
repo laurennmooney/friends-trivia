@@ -19,7 +19,7 @@ export class ScoresComponent implements OnInit {
     this.quizService.getScores().subscribe(response => {
       this.scoreBoard = response;
       console.log(response);
-    })
+    });
   }
 
 }
