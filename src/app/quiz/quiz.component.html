@@ -1,12 +1,16 @@
 <form #quizForm="ngForm">
   <label for="username">Please enter your name:</label>
   <input type="text" id="username" name="username" placeholder="Name">
-  <div *ngFor="let question of questionList">
-    <h4>{{ question.question_name }}</h4>
-    <p>{{ question.choice_1 }}</p>
-    <p>{{ question.choice_2 }}</p>
-    <p>{{ question.choice_3 }}</p>
-    <p>{{ question.choice_4 }}</p>
-  </div>
+  <ol>
+    <li *ngFor="let question of questionList">
+      <form #questionForm="ngForm">
+        <h4>{{ question.question_name }}</h4>
+        <input type="radio" name="userAnswer" [value]="question.choice_1" ngModel>{{ question.choice_1 }}
+        <input type="radio" name="userAnswer" [value]="question.choice_2" ngModel>{{ question.choice_2 }}
+        <input type="radio" name="userAnswer" [value]="question.choice_3" ngModel>{{ question.choice_3 }}
+        <input type="radio" name="userAnswer" [value]="question.choice_4" ngModel>{{ question.choice_4 }}
+      </form>
+    </li>
+  </ol>
   <button>Complete quiz!</button>
 </form>
