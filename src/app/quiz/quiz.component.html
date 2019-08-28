@@ -1,1 +1,12 @@
-<p>quiz works!</p>
+<form #quizForm="ngForm">
+  <label for="username">Please enter your name:</label>
+  <input type="text" id="username" name="username" placeholder="Name">
+  <div *ngFor="let question of questionList">
+    <h4>{{ question.question_name }}</h4>
+    <p>{{ question.choice_1 }}</p>
+    <p>{{ question.choice_2 }}</p>
+    <p>{{ question.choice_3 }}</p>
+    <p>{{ question.choice_4 }}</p>
+  </div>
+  <button>Complete quiz!</button>
+</form>
