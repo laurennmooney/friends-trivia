@@ -1,16 +1,44 @@
-<form #quizForm="ngForm">
-  <label for="username">Please enter your name:</label>
-  <input type="text" id="username" name="username" placeholder="Name">
-  <ol>
-    <li *ngFor="let question of questionList">
-      <form #questionForm="ngForm">
-        <h4>{{ question.question_name }}</h4>
-        <input type="radio" name="userAnswer" [value]="question.choice_1" ngModel>{{ question.choice_1 }}
-        <input type="radio" name="userAnswer" [value]="question.choice_2" ngModel>{{ question.choice_2 }}
-        <input type="radio" name="userAnswer" [value]="question.choice_3" ngModel>{{ question.choice_3 }}
-        <input type="radio" name="userAnswer" [value]="question.choice_4" ngModel>{{ question.choice_4 }}
-      </form>
-    </li>
-  </ol>
+<form #quizForm="ngForm" (ngSubmit)="onSubmit(quizForm)">
+  <label for="username">Name: </label>
+  <input type="text" id="username" name="username" placeholder="Name" ngModel />
+  <div *ngFor="let question of questionList; index as i">
+    <h4>{{ question.question_name }}</h4>
+    <label>
+      <input
+        type="radio"
+        name="{{ i }}"
+        class="choice"
+        value="{{ question.choice_1 }}"
+        ngModel
+      />{{ question.choice_1 }}</label
+    >
+    <label>
+      <input
+        type="radio"
+        name="{{ i }}"
+        class="choice"
+        value="{{ question.choice_2 }}"
+        ngModel
+      />{{ question.choice_2 }}</label
+    >
+    <label>
+      <input
+        type="radio"
+        name="{{ i }}"
+        class="choice"
+        value="{{ question.choice_3 }}"
+        ngModel
+      />{{ question.choice_3 }}</label
+    >
+    <label>
+      <input
+        type="radio"
+        name="{{ i }}"
+        class="choice"
+        value="{{ question.choice_4 }}"
+        ngModel
+      />{{ question.choice_4 }}</label
+    >
+  </div>
   <button>Complete quiz!</button>
 </form>
