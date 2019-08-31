@@ -11,10 +11,11 @@ import { FormsModule } from "@angular/forms";
 import { LandingpageComponent } from "./landingpage/landingpage.component";
 
 const appRoutes: Routes = [
+  { path: "home", component: LandingpageComponent },
   { path: "quiz", component: QuizComponent },
   { path: "results", component: ResultsComponent },
   { path: "scores", component: ScoresComponent },
-  { path: "", redirectTo: "quiz", pathMatch: "full" }
+  { path: "", redirectTo: "home", pathMatch: "full" }
 ];
 
 @NgModule({
