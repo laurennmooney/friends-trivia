@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { QuizService } from "../quiz.service";
 import { NgForm } from "@angular/forms";
-import { Router } from "@angular/router";
 
 @Component({
   selector: "app-quiz",
@@ -11,10 +10,9 @@ import { Router } from "@angular/router";
 export class QuizComponent implements OnInit {
   questionList: any[];
   userResult: any;
-  userAnswers: any;
   userScore: number;
 
-  constructor(private quizService: QuizService, private router: Router) {}
+  constructor(private quizService: QuizService) {}
 
   ngOnInit() {
     this.getQuestions();
@@ -33,6 +31,5 @@ export class QuizComponent implements OnInit {
       form.value.username
     );
     this.quizService.postScore(this.userResult, form.value, this.questionList);
-    console.log(form);
   }
 }
