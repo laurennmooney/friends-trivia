@@ -1,59 +1,76 @@
 <main>
   <form #quizForm="ngForm" (ngSubmit)="onSubmit(quizForm)">
-    <div>
-    <label for="username" id="usernameLabel">Enter your name: </label>
-    <input
-      class="usernameInput"
-      type="text"
-      id="username"
-      name="username"
-      placeholder="Name"
-      ngModel
+    <img
+      src="../../assets/it-s-not-something-you-are-unagi-of-the-friends-parody-license-plate.jpg"
     />
+    <div>
+      <label for="username" id="usernameLabel">Enter your name: </label>
+      <input
+        required
+        class="usernameInput"
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Name"
+        [(ngModel)]="username"
+      />
     </div>
     <div class="questionBox" *ngFor="let question of questionList; index as i">
       <h4 id="questionText">{{ question.question_name }}</h4>
       <div id="radioAndLabel">
-      <input
-        id="choice_1{{ i }}"
-        type="radio"
-        name="{{ i }}"
-        class="choice"
-        value="{{ question.choice_1 }}"
-        ngModel
-      /><label for="choice_1{{ i }}" class="choiceLabel">{{ question.choice_1 }}</label>
+        <input
+          required
+          id="choice_1{{ i }}"
+          type="radio"
+          name="{{ i }}"
+          class="choice"
+          value="{{ question.choice_1 }}"
+          ngModel
+        /><label for="choice_1{{ i }}" class="choiceLabel">{{
+          question.choice_1
+        }}</label>
       </div>
       <div id="radioAndLabel">
-      <input
-        id="choice_2{{ i }}"
-        type="radio"
-        name="{{ i }}"
-        class="choice"
-        value="{{ question.choice_2 }}"
-        ngModel
-      /><label for="choice_2{{ i }}" class="choiceLabel">{{ question.choice_2 }}</label>
+        <input
+          required
+          id="choice_2{{ i }}"
+          type="radio"
+          name="{{ i }}"
+          class="choice"
+          value="{{ question.choice_2 }}"
+          ngModel
+        /><label for="choice_2{{ i }}" class="choiceLabel">{{
+          question.choice_2
+        }}</label>
       </div>
       <div id="radioAndLabel">
-      <input
-        id="choice_3{{ i }}"
-        type="radio"
-        name="{{ i }}"
-        class="choice"
-        value="{{ question.choice_3 }}"
-        ngModel
-      /><label for="choice_3{{ i }}" class="choiceLabel">{{ question.choice_3 }}</label>
+        <input
+          required
+          id="choice_3{{ i }}"
+          type="radio"
+          name="{{ i }}"
+          class="choice"
+          value="{{ question.choice_3 }}"
+          ngModel
+        /><label for="choice_3{{ i }}" class="choiceLabel">{{
+          question.choice_3
+        }}</label>
       </div>
       <div id="radioAndLabel">
-      <input
-        id="choice_4{{ i }}"
-        type="radio"
-        name="{{ i }}"
-        class="choice"
-        value="{{ question.choice_4 }}"
-        ngModel
-      /><label for="choice_4{{ i }}" class="choiceLabel">{{ question.choice_4 }}</label>
+        <input
+          id="choice_4{{ i }}"
+          type="radio"
+          name="{{ i }}"
+          class="choice"
+          value="{{ question.choice_4 }}"
+          ngModel
+        /><label for="choice_4{{ i }}" class="choiceLabel">{{
+          question.choice_4
+        }}</label>
       </div>
     </div>
-    <button id="completeButton">Complete quiz!</button>
+    <button id="completeButton" [disabled]="!username">
+      Complete quiz!
+    </button>
   </form>
 </main>

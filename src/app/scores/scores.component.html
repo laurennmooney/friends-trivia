@@ -1,5 +1,12 @@
-<p>scores works!</p>
-<div *ngFor="let score of scoreBoard">
-  <p>{{ score.username }}</p>
-  <p>{{ score.score }}</p>
-</div>
+<main>
+  <img src="../../assets/ohmygod.jpg" />
+  <div id="scoreBox">
+    <h1 id="scoreboardTitle">Scoreboard!</h1>
+    <div id="actualScoreList">
+      <div id="userScore" *ngFor="let score of scoreBoard">
+        <p>{{ score.username }}</p>
+        <p>{{ score.score }}</p>
+      </div>
+    </div>
+  </div>
+</main>

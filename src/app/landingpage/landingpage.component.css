@@ -4,7 +4,7 @@ main {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  height: 100vh;
+  height: 93vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,7 +14,6 @@ main {
 div {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
   height: 40%;
   background-color: #7C71AB;
@@ -31,20 +30,17 @@ p {
   margin-top: 0;
 }
 
-button {
+#enterQuizButton {
   font-family: 'Raleway', sans-serif;
+  border: none;
+  padding: 20px 10px;
+  font-size: 20px;
+  background: #FBD550;
+  border-radius: 10px;
 }
 
-@media only screen and (max-width: 930px) {
-  div {
-    height: 30%;
-    width: 200px;
-  }
-}
-
-@media only screen and (max-width: 700px) {
-  div {
-    height: 30%;
-    width: 20%;
-  }
+#enterQuizButton:hover {
+  color: white;
+  background: rgb(65, 53, 112);
+  box-shadow: 0px 0px 10px 5px rgba(204, 204, 204, 1);
 }

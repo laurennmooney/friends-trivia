@@ -1,0 +1,51 @@
+main {
+  background: black;
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+img {
+  width: 30%;
+}
+
+#scoreboardTitle {
+  margin: 5px;
+  font-family: 'Rock Salt', cursive;
+  text-align: center;
+  font-size: 35px;
+  font-weight: normal;
+}
+
+#scoreBox {
+  width: 35%;
+  background: rgba(128, 128, 128, 0.603);
+  padding: 20px 20px;
+  font-size: 20px;
+  margin: 10px 0 20px 0;
+}
+
+#userScore {
+  margin: 5px 0;
+  padding: 0 20px;
+  border-radius: 5px;
+}
+
+#userScore:nth-child(3n+1) {
+  background: #ea181fbe;
+}
+
+#userScore:nth-child(3n) {
+  background: #fabb0fc0;
+}
+
+#userScore:nth-child(3n+2) {
+  background: #00b2e8ad;
+}
+
+#userScore {
+  display: flex;
+  justify-content: space-between;
+}

@@ -12,6 +12,7 @@ export class QuizComponent implements OnInit {
   questionList: any[];
   userResult: any;
   userAnswers: any;
+  userScore: number;
 
   constructor(private quizService: QuizService, private router: Router) {}
 
@@ -32,5 +33,6 @@ export class QuizComponent implements OnInit {
       form.value.username
     );
     this.quizService.postScore(this.userResult, form.value, this.questionList);
+    console.log(form);
   }
 }

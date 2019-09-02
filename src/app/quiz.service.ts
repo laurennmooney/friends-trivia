@@ -10,10 +10,11 @@ import { Router } from "@angular/router";
 })
 export class QuizService {
   username: string;
-  userScore: number = 0;
+  userScore: number;
   userResult: any;
   scoreBoard: any;
   userAndCorrectAnswers: any;
+  userAnswer: string;
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -51,6 +52,11 @@ export class QuizService {
 
   goToResults() {
     this.router.navigateByUrl("/results");
+  }
+
+  goToQuiz() {
+    this.router.navigateByUrl("/quiz");
+    this.userScore = 0;
   }
 
   checkAnswer(form: object, questions: any, username: string) {
